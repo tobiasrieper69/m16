@@ -1,32 +1,31 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: python-flask-app # Define the Deployment Name
+  name: python-flask-app-deployment # Define the Deployment Name
 spec:
   selector: # Define the Selector
     matchLabels:
-      run: python-flask-app
+      run: python-flask-app-label
   replicas: 2 # Define the Number of Pods
   template:
     metadata:
       labels:
-        run: python-flask-app
+        run: python-flask-app-label
     spec:
       containers: # Container Details
-      - name: python-flask-app
-        image: tobiasreaper/python-flask-app:latest
+      - name: python-flask-app-container
+        image: tobiasreaper69/m16:17
         ports:
         - containerPort: 5000
-      imagePullSecrets:
-      - name: regcred
+
 ---
 
 apiVersion: v1
 kind: Service
 metadata:
-  name: python-flask-app
+  name: python-flask-app-service
   labels:
-    run: python-flask-app
+    run: python-flask-app-label
 spec:
   type: NodePort
   ports:
@@ -34,4 +33,4 @@ spec:
     targetPort: 5000
     protocol: TCP
   selector:
-    run: python-flask-app
+    run: python-flask-app-label
