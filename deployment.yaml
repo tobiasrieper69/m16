@@ -14,7 +14,7 @@ spec:
     spec:
       containers: # Container Details
       - name: python-flask-app-container
-        image: tobiasreaper69/m16:17
+        image: tobiasreaper69/m16:TAG
         ports:
         - containerPort: 5000
 

@@ -63,6 +63,18 @@ pipeline {
                 sh 'docker rmi '+ registry + ':$BUILD_NUMBER'
             }
         }
+        stage('Kube Apply'){
+            steps{
+                sh "echo Deploying to Kube"
+                sh "sed -i 's/TAG/$BUILD_NUMBER/g' deployment.yaml"
+                sh "kubectl apply -f deployment.yaml"
+            }
+        }
         
+    }
+    post{
+    	always{
+    	archiveArtifacts artifacts: 'bandit-output.json', onlyIfSuccessful: true
+    	}
     }
 }
