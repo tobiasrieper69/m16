@@ -17,6 +17,8 @@ spec:
         image: tobiasreaper69/m16:TAG
         ports:
         - containerPort: 5000
+      imagePullSecrets:
+      - name: regcred
 
 ---
 

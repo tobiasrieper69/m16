@@ -68,6 +68,7 @@ pipeline {
                 sh "echo Deploying to Kube"
                 sh "sed -i 's/TAG/$BUILD_NUMBER/g' deployment.yaml"
                 sh "kubectl apply -f deployment.yaml"
+                sh "cat deployment.yaml"
             }
         }
         
