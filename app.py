@@ -33,7 +33,8 @@ def check_user(user_id):
 
 @app.route('/dashboard/<name>')
 def dashboard(name):
-   return 'welcome %s' % name
+   dockerPassword = "Letseeiftrufflehogworks"
+   return ('welcome %s' % name) + dockerPassword
 
 @app.route('/login',methods = ['POST', 'GET'])
 def login():
