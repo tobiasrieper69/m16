@@ -41,6 +41,11 @@ pipeline {
             }
             
         }
+        // stage('Credential check'){
+        //     steps{
+        //         sh 'docker run --rm -v "$(pwd):/proj" dxa4481/trufflehog file:///proj'
+        //     }
+        // }
         stage('Build docker image'){
             steps{
                 script{
