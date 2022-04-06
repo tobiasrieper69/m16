@@ -39,7 +39,7 @@ pipeline {
                 sh 'cd terrforminfra'
                 sh 'terraform fmt'
                 sh 'terraform validate'
-                sh 'terraform apply -y'
+                sh 'terraform apply -auto-approve'
                 sh 'cd ..'
             }
             
